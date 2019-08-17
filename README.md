@@ -3,6 +3,8 @@ apns
 
 An OTP application
 
+https://github.com/inaka/apns4erl.git
+
 Build
 -----
 
