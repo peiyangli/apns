@@ -30,6 +30,7 @@
         , push_notification_token/4
         , push_notification_token/5
         , default_headers/0
+        , default_headers/1
         , generate_token/2
         , get_feedback/0
         , get_feedback/1
