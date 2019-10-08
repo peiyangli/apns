@@ -108,6 +108,12 @@ push_notification(Pid, {DeviceId, JSONMap, Headers}, Then) when is_function(Then
             (#{cid:=ConntionID})->
               Rt = apns:push_notification(ConntionID, DeviceId, JSONMap, Headers),
               Then(Rt)
+          end);
+push_notification(Pid, {DeviceId, JSONMap, Headers}, Then)->
+  on(Pid, fun
+            (#{cid:=ConntionID})->
+              Rt = apns:push_notification(ConntionID, DeviceId, JSONMap, Headers),
+              Rt
           end).
 
 on(Pid, Fun, Args) when is_function(Fun, 2)->

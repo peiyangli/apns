@@ -79,7 +79,7 @@ push_notification_pool(PoolName, {DeviceId, JSONMap, Headers}, {Then, Args}) whe
     fun(Pid)->
       apns_pool_worker:push_notification(Pid, {DeviceId, JSONMap, Headers}, {Then, Args})
     end);
-push_notification_pool(PoolName, {DeviceId, JSONMap, Headers}, Then)when is_function(Then, 1)->
+push_notification_pool(PoolName, {DeviceId, JSONMap, Headers}, Then)->
   poolboy:transaction(PoolName,
     fun(Pid)->
       apns_pool_worker:push_notification(Pid, {DeviceId, JSONMap, Headers}, Then)
